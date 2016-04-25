@@ -1,0 +1,13 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+      <nav>
+        <ul class="nav navbar-nav navbar-right">
+          <%# if logged_in? %>
+    
+          <% #else %>
+            <li><%= link_to "Log in", '#' %></li>
+          <%# end %>
+        </ul>
+      </nav>
+    </div>
+  </header>
