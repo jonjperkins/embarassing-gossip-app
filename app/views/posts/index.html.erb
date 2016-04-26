@@ -3,10 +3,13 @@
 
 <ul class='posts'>
   <% @posts.each do |post| %>
-    <%= post.title %> <br>
-    <%= post.body %> <br>
+  <li>
+    <%= post.title %>
+    <%= post.body %> 
+  
     <% if logged_in? %>
       <% user = User.find(post.user_id) %><br>
+      </li>
       <%= "Written by:  " + user.name %><br>
     <% else %>
       <%= "Log in to see who authored this post." %> <br>
