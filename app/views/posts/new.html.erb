@@ -1,0 +1,18 @@
+<% provide(:title, "Create post") %>
+<h1>Create a post</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@post) do |f| %>
+    <%= render 'shared/error_messages' %>
+    
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control' %>
+      
+      <%= f.label :body %>
+      <%= f.text_field :body, class: 'form-control' %>
+      
+      <%= f.submit "Submit my post", class: "btn btn-primary" %>
+      <% end %>
+  </div>
+</div>

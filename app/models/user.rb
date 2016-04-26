@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
     attr_accessor :remember_token
     has_secure_password
+    has_many :posts
     
     def User.digest(string)
         cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
@@ -24,6 +25,7 @@ class User < ActiveRecord::Base
     def forget
         update_attribute(:remember_digest, nil)
     end
+
         
     
 end
