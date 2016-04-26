@@ -5,7 +5,13 @@
   <% @posts.each do |post| %>
     <%= post.title %> <br>
     <%= post.body %> <br>
+    <% if logged_in? %>
+      <% user = User.find(post.user_id) %><br>
+      <%= "Written by:  " + user.name %><br>
+    <% else %>
+      <%= "Log in to see who authored this post." %> <br>
     <br>
+    <% end %>
   <% end %>
 </ul>
 
