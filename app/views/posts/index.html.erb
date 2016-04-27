@@ -1,44 +1,41 @@
 <% provide(:title, "All users") %>
 <h1>Welcome to the Gossip Site!</h1>
+
 <h3>This is a great place to post all
 your juicy gossip. Wow, soooo much dramaaaaaa!</h3> 
 <h3>But there's a catch. <em>If you want
 to see who authored a post, you have to be signed in!</em></h3>
+
 <br>
 <br>
+
 <%if logged_in? %>
  <div class='text-center'><%= link_to "Create a New Post", create_path, class: 'btn btn-primary' %></div>
  <br>
- <%else%>
- <% end %>
+<%else%>
+<% end %>
  
  
 <div id="container" class="box">
   <%= will_paginate %>
-<ul class='posts'>
-  <% @posts.each do |post| %>
-  <li>
-    <div id="titles"><%= post.title %></div> 
-         <%= "Post created on " + post.created_at.strftime("%d %b. %Y. %H %M") %> 
+  <p>
+    <% @posts.each do |post| %>
+      <div id="titles"><%= post.title %></div> 
+         <h5><%= "Post created on " + post.created_at.strftime("%d %b. %Y. %H:%M") %></h5>
          <br>
-         <br>
-    <%= post.body %> 
-  
-  
-    <% if logged_in? %>
-      <% user = User.find(post.user_id) %><br>
-     
-     <em> <%= "This post was authored by " + user.name %></em><br>
-
-  </li>
-    <% else %>
-    <br>
-      <%= link_to "Log in", create_path %>
-      <em><%= "to see who authored this post." %></em> <br>
+      <h4><%= post.body %> </h4>
+      <% if logged_in? %>
+        <% user = User.find(post.user_id) %><br>
+        <em> <%= "This post was authored by " + user.name %></em><br>
     
+      <% else %>
+        <br>
+        <%= link_to "Log in", create_path %>
+        <em><%= "to see who authored this post." %></em> <br>
+      <% end %>
+  </p>
     <% end %>
-  <% end %>
-</ul>
+  
 
 <%= will_paginate %>
 </div>
