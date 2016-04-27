@@ -16,10 +16,10 @@ to see who authored a post, you have to be signed in!</em></h3>
 <div id="container" class="box">
   <%= will_paginate %>
 <ul class='posts'>
-  <% @posts.reverse.each do |post| %>
+  <% @posts.each do |post| %>
   <li>
     <div id="titles"><%= post.title %></div> 
-         <%= "Post created on " + post.created_at.strftime("%d %b. %Y") %> 
+         <%= "Post created on " + post.created_at.strftime("%d %b. %Y. %H %M") %> 
          <br>
          <br>
     <%= post.body %> 
