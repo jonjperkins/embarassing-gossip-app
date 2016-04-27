@@ -1,20 +1,35 @@
 <% provide(:title, "All users") %>
-<h1>All posts</h1>
+<h1>Welcome to the Gossip Site!</h1>
+<h3>This is a great place to post all
+your juicy gossip. Wow, soooo much dramaaaaaa!</h3> 
+<h3>But there's a catch. <em>If you want
+to see who authored a post, you have to be signed in!</em></h3>
+<br>
 
+<%if logged_in? %>
+ <div class='text-center'><%= link_to "Create a New Post", create_path, class: 'btn btn-primary' %></div>
+ <%else%>
+ <% end %>
+<div id="container" class="box">
 <ul class='posts'>
-  <% @posts.each do |post| %>
+  <% @posts.reverse.each do |post| %>
   <li>
-    <%= post.title %>
-    <%= post.body %> 
+    <div id="titles"><%= post.title %></div> <br>
+    <div><%= post.body %> </div>
+  
   
     <% if logged_in? %>
       <% user = User.find(post.user_id) %><br>
-      </li>
-      <%= "Written by:  " + user.name %><br>
+     
+     <em> <%= "This post was authored by " + user.name %></em><br>
+  </li>
     <% else %>
-      <%= "Log in to see who authored this post." %> <br>
     <br>
+      <%= link_to "Log in", create_path %>
+      <em><%= "to see who authored this post." %></em> <br>
+    
     <% end %>
   <% end %>
 </ul>
+</div>
 

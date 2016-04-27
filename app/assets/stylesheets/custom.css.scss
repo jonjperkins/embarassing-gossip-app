@@ -10,13 +10,7 @@ $light-gray: #777;
 }
 /* miscellaneous */
 
-.debug_dump {
-  clear: both;
-  float: left;
-  width: 100%;
-  margin-top: 45px;
-  @include box_sizing;
-}
+
 
 /* universal */
 body {
@@ -60,6 +54,15 @@ h2 {
   color: $light-gray;
 }
 
+h3 {
+  font-size: 1.15em;
+  letter-spacing: -1px;
+  margin-bottom: 0px;
+  text-align: center;
+  font-weight: normal;
+  color: $light-gray;
+}
+
 p {
   font-size: 1.1em;
   line-height: 1.7em;
@@ -73,7 +76,7 @@ p {
   font-size: 1.7em;
   color: pink;
   text-transform: uppercase;
-  letter-spacing: -1px;
+  letter-spacing: -1px; 
   padding-top: 9px;
   font-weight: bold;
 }
@@ -104,41 +107,7 @@ footer {
   }
 }
 
-/* sidebar */
 
-aside {
-  section.user_info {
-    margin-top: 20px;
-  }
-  section {
-    padding: 10px 0;
-    margin-top: 20px;
-    &:first-child {
-      border: 0;
-      padding-top: 0;
-    }
-    span {
-      display: block;
-      margin-bottom: 3px;
-      line-height: 1;
-    }
-    h1 {
-      font-size: 1.4em;
-      text-align: left;
-      letter-spacing: -1px;
-      margin-bottom: 3px;
-      margin-top: 0px;
-    
-    }
-  }
-}
-.gravatar {
-  float: left;
-  margin-right: 10px;
-}
-.gravatar_edit {
-  margin-top: 15px;
-}
 
 /* forms */
 
@@ -186,21 +155,27 @@ input {
 
 .posts {
   list-style: none;
-  margin: 0;
+  margin: auto;
   li {
     overflow: auto;
-    padding: 10px 0;
+   
     border-bottom: 1px solid $light-gray;
   }
 }
 
-.titles {
-  float: left;
+#titles {
   margin-right: 10px;
   font-size: 1.7em;
-  color: black;
+  color: light-gray;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
+  
+}
+
+#container{
+    margin-left: 200px;
+    margin-right: 200px;
+    position:relative;
   
 }
