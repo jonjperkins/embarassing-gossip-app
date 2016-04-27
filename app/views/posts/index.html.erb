@@ -5,23 +5,31 @@ your juicy gossip. Wow, soooo much dramaaaaaa!</h3>
 <h3>But there's a catch. <em>If you want
 to see who authored a post, you have to be signed in!</em></h3>
 <br>
-
+<br>
 <%if logged_in? %>
  <div class='text-center'><%= link_to "Create a New Post", create_path, class: 'btn btn-primary' %></div>
+ <br>
  <%else%>
  <% end %>
+ 
+ 
 <div id="container" class="box">
+  <%= will_paginate %>
 <ul class='posts'>
   <% @posts.reverse.each do |post| %>
   <li>
-    <div id="titles"><%= post.title %></div> <br>
-    <div><%= post.body %> </div>
+    <div id="titles"><%= post.title %></div> 
+         <%= "Post created on " + post.created_at.strftime("%d %b. %Y") %> 
+         <br>
+         <br>
+    <%= post.body %> 
   
   
     <% if logged_in? %>
       <% user = User.find(post.user_id) %><br>
      
      <em> <%= "This post was authored by " + user.name %></em><br>
+
   </li>
     <% else %>
     <br>
@@ -31,5 +39,7 @@ to see who authored a post, you have to be signed in!</em></h3>
     <% end %>
   <% end %>
 </ul>
+
+<%= will_paginate %>
 </div>
 
